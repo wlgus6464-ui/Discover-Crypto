@@ -83,7 +83,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .profile.is-blurred .profile-inner {
-  filter: blur(4px);
+  filter: blur(8px);
   transform: translateZ(0);
   user-select: none;
   pointer-events: none;
@@ -238,11 +238,38 @@ a { color: inherit; text-decoration: none; }
   font-size: 12px;
   color: var(--muted);
 }
-.price {
-  margin-top: 8px;
-  font-size: 13px;
-  font-weight: 750;
-  color: #fb7185;
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.count-unit {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 4px 8px;
+  text-align: center;
+}
+
+.count-unit strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #fff;
+  font-variant-numeric: tabular-nums;
+}
+
+.count-unit span {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a1a1aa;
 }
 
 .email-box {
