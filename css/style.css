@@ -193,7 +193,7 @@ a { color: inherit; text-decoration: none; }
 
 .store {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 12px;
 }
 
@@ -210,8 +210,9 @@ a { color: inherit; text-decoration: none; }
 
 .product img {
   width: 100%;
-  height: 118px;
+  height: 168px;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
