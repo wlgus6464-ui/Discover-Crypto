@@ -63,10 +63,19 @@
       passwordInput.focus();
     });
 
+    const fillMessage = "Please fill out this input field";
+    passwordInput.addEventListener("invalid", () => {
+      passwordInput.setCustomValidity(fillMessage);
+    });
+    passwordInput.addEventListener("input", () => {
+      passwordInput.setCustomValidity("");
+    });
+
     passwordBox.addEventListener("submit", (e) => {
       e.preventDefault();
       if (!passwordInput.value.trim()) {
-        passwordInput.focus();
+        passwordInput.setCustomValidity(fillMessage);
+        passwordInput.reportValidity();
         return;
       }
       realDownload.click();

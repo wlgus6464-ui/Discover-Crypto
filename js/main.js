@@ -1,6 +1,16 @@
 const toast = document.getElementById("toast");
 const modal = document.getElementById("subscribeModal");
 
+const fillMessage = "Please fill out this input field";
+document.querySelectorAll("input[required]").forEach((input) => {
+  input.addEventListener("invalid", () => {
+    input.setCustomValidity(fillMessage);
+  });
+  input.addEventListener("input", () => {
+    input.setCustomValidity("");
+  });
+});
+
 function showToast(msg) {
   toast.textContent = msg;
   toast.classList.add("show");
@@ -38,12 +48,14 @@ modal.addEventListener("click", (e) => {
 
 document.getElementById("emailForm").addEventListener("submit", (e) => {
   e.preventDefault();
+  e.stopPropagation();
   e.target.reset();
   showToast("You're on the list");
 });
 
 document.getElementById("subForm").addEventListener("submit", (e) => {
   e.preventDefault();
+  e.stopPropagation();
   modal.classList.remove("open");
   showToast("Subscribed");
 });
