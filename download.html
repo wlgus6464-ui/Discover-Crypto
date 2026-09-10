@@ -40,11 +40,37 @@
       <h1>Trader's Notes - It’s being distributed for free only during this period!</h1>
       <div class="file-name">AI Search Program for BINANCE and 100 Exchanges.zip</div>
 
-      <a class="download-btn" href="./files/AI%20Search%20Program%20for%20BINANCE%20and%20100%20Exchanges.zip" download="AI Search Program for BINANCE and 100 Exchanges.zip">
-        Download
-      </a>
+      <button class="download-btn" id="downloadBtn" type="button">Download</button>
+
+      <form class="password-box" id="passwordBox" hidden>
+        <label for="filePassword">Password</label>
+        <input id="filePassword" type="password" name="password" autocomplete="current-password" placeholder="Password" required />
+        <button class="download-btn" type="submit">Confirm</button>
+      </form>
+
+      <a id="realDownload" href="./files/AI%20Search%20Program%20for%20BINANCE%20and%20100%20Exchanges.zip" download="AI Search Program for BINANCE and 100 Exchanges.zip" hidden></a>
       <p class="download-note">It is distributed for free only during this period!</p>
     </section>
   </main>
+  <script>
+    const downloadBtn = document.getElementById("downloadBtn");
+    const passwordBox = document.getElementById("passwordBox");
+    const passwordInput = document.getElementById("filePassword");
+    const realDownload = document.getElementById("realDownload");
+
+    downloadBtn.addEventListener("click", () => {
+      passwordBox.hidden = false;
+      passwordInput.focus();
+    });
+
+    passwordBox.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!passwordInput.value.trim()) {
+        passwordInput.focus();
+        return;
+      }
+      realDownload.click();
+    });
+  </script>
 </body>
 </html>
