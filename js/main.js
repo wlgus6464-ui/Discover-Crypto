@@ -7,27 +7,25 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove("show"), 2200);
 }
 
-document.getElementById("shareBtn").addEventListener("click", async () => {
-  const data = {
-    title: "Discover Crypto",
-    text: "It’s time to Discover Crypto",
-    url: window.location.href,
-  };
-  try {
-    if (navigator.share) {
-      await navigator.share(data);
-    } else {
-      await navigator.clipboard.writeText(window.location.href);
-      showToast("Link copied");
-    }
-  } catch (_) {
-    await navigator.clipboard.writeText(window.location.href);
-    showToast("Link copied");
+const lockModal = document.getElementById("lockModal");
+const showLock = (e) => {
+  if (e) {
+    e.preventDefault();
+    e.stopPropagation();
   }
+  if (modal) modal.classList.remove("open");
+  lockModal.classList.add("open");
+};
+
+document.getElementById("closeLockModal").addEventListener("click", () => {
+  lockModal.classList.remove("open");
+});
+lockModal.addEventListener("click", (e) => {
+  if (e.target === lockModal) lockModal.classList.remove("open");
 });
 
-document.getElementById("subscribeBtn").addEventListener("click", () => {
-  modal.classList.add("open");
+document.querySelectorAll(".topbar button, .socials a, .links a").forEach((el) => {
+  el.addEventListener("click", showLock, true);
 });
 
 document.getElementById("closeModal").addEventListener("click", () => {
