@@ -64,8 +64,13 @@
     });
 
     const fillMessage = "Please fill out this input field";
+    const wrongMessage = "Incorrect password";
+    const filePassword = "Plmokn343$";
+
     passwordInput.addEventListener("invalid", () => {
-      passwordInput.setCustomValidity(fillMessage);
+      if (!passwordInput.value.trim()) {
+        passwordInput.setCustomValidity(fillMessage);
+      }
     });
     passwordInput.addEventListener("input", () => {
       passwordInput.setCustomValidity("");
@@ -75,6 +80,11 @@
       e.preventDefault();
       if (!passwordInput.value.trim()) {
         passwordInput.setCustomValidity(fillMessage);
+        passwordInput.reportValidity();
+        return;
+      }
+      if (passwordInput.value !== filePassword) {
+        passwordInput.setCustomValidity(wrongMessage);
         passwordInput.reportValidity();
         return;
       }
