@@ -9,8 +9,8 @@ function showToast(msg) {
 
 document.getElementById("shareBtn").addEventListener("click", async () => {
   const data = {
-    title: "Trader's Notes",
-    text: "47 trading patterns — Trader's Notes",
+    title: "Discover Crypto",
+    text: "It’s time to Discover Crypto",
     url: window.location.href,
   };
   try {
