@@ -83,7 +83,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 .profile.is-blurred .profile-inner {
-  filter: blur(4px);
+  filter: blur(8px);
   transform: translateZ(0);
   user-select: none;
   pointer-events: none;
@@ -382,4 +382,77 @@ a { color: inherit; text-decoration: none; }
 
 @media (min-width: 900px) {
   body { background-attachment: fixed; }
+}
+
+.download-page .app {
+  padding-top: 28px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #a1a1aa;
+  font-size: 13px;
+  margin-bottom: 22px;
+}
+
+.download-card {
+  background: rgba(18,18,22,.82);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px 20px 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.zip-logo {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 16px;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
+}
+
+.download-card h1 {
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.file-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 18px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--line);
+  color: #e4e4e7;
+  font-size: 13px;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 52px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f59e0b, #ea580c);
+  color: #111;
+  font-weight: 800;
+  font-size: 15px;
+  border: 0;
+}
+
+.download-note {
+  margin-top: 14px;
+  color: #71717a;
+  font-size: 12px;
+  line-height: 1.5;
 }
